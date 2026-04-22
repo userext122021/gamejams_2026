@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://drkjc53gkuhe5"]
+
+[ext_resource type="PackedScene" uid="uid://nfkq1v6rhxve" path="res://core/entities/base_player/base_player.tscn" id="1_dadds"]
+[ext_resource type="Script" uid="uid://q7oa35y6aio5" path="res://game/player.gd" id="2_du4nq"]
+[ext_resource type="PackedScene" uid="uid://4orq45b567bc" path="res://assets/models/world/dwarf.glb" id="2_w5y0b"]
+
+[node name="Player" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_dadds")]
+script = ExtResource("2_du4nq")
+animation_player = NodePath("dwarf/AnimationPlayer")
+
+[node name="MeshInstance3D" parent="." index="1"]
+visible = false
+
+[node name="dwarf" parent="." index="5" instance=ExtResource("2_w5y0b")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.3, 0)
+
+[node name="Skeleton3D" parent="dwarf/Armature" index="0"]
+bones/2/rotation = Quaternion(-0.18611851, 0.09164314, -0.35241994, 0.9125577)
+bones/3/rotation = Quaternion(0.4383121, -0.0057141217, -0.28806546, 0.8513919)
+bones/6/rotation = Quaternion(-0.1627779, -0.07468383, 0.31737727, 0.93123436)
+bones/7/rotation = Quaternion(0.3733468, -0.0010275209, 0.2888872, 0.8815642)
+bones/8/rotation = Quaternion(-0.1971285, 0.0060662758, 0.03015456, 0.97989506)
+bones/10/position = Vector3(0.13041341, 0.12497947, 1.6792017e-08)
+bones/10/rotation = Quaternion(4.853154e-06, 3.8282118e-07, 0.9877117, -0.15628687)
+bones/11/rotation = Quaternion(-6.100574e-07, 2.0498195e-08, -0.09461095, 0.99551433)
+bones/12/position = Vector3(-0.1358473, 0.11682866, 1.5696866e-08)
+bones/12/rotation = Quaternion(-6.0695274e-06, 4.873309e-07, 0.9899336, 0.1415331)
+bones/13/rotation = Quaternion(-1.1387563e-06, -6.178787e-08, 0.12060142, 0.992701)
+
+[node name="Bone_005" parent="dwarf/Armature/Skeleton3D" index="0"]
+transform = Transform3D(-0.8778957, 0.47885185, 1.2665987e-07, -0.47885197, -0.87789553, -2.3841858e-07, 5.2154064e-08, -1.7881393e-07, 0.9999998, 0.43471122, 0.16589782, 4.4703484e-08)
+
+[node name="Bone_004" parent="dwarf/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.9711364, 0.209864, -0.1133624, -0.23852456, -0.8544471, 0.4615473, 1.4901161e-08, 0.4752652, 0.8798424, 0.39667404, 0.3207637, -0.08614033)
+
+[node name="Bone_003" parent="dwarf/Armature/Skeleton3D" index="2"]
+transform = Transform3D(-0.6782801, 0.6598518, 0.32331318, -0.7348033, -0.6090941, -0.29844302, 1.1175871e-08, -0.43999952, 0.8979979, 0.29071322, 0.41857377, -0.015484003)
+
+[node name="Bone_008" parent="dwarf/Armature/Skeleton3D" index="3"]
+transform = Transform3D(-0.9583853, -0.28547665, 3.427267e-07, 0.28547648, -0.95838547, -1.4901161e-07, 3.632158e-07, -5.9604645e-08, 0.99999994, -0.47003165, 0.1360115, -7.450581e-09)
+
+[node name="Bone_007" parent="dwarf/Armature/Skeleton3D" index="4"]
+transform = Transform3D(-0.9390184, -0.3171155, 0.132972, 0.34386578, -0.86596966, 0.3631149, 3.427267e-07, 0.38669628, 0.92220706, -0.39939106, 0.3289146, -0.086140335)
+
+[node name="Bone_006" parent="dwarf/Armature/Skeleton3D" index="5"]
+transform = Transform3D(-0.5920764, -0.74095416, -0.31691036, 0.8058816, -0.54437447, -0.23283276, 4.917383e-07, -0.3932471, 0.9194328, -0.26626074, 0.4267246, -0.015484002)
+
+[node name="Bone_010" parent="dwarf/Armature/Skeleton3D" index="8"]
+transform = Transform3D(-0.9922779, 0.12403476, 9.6925605e-06, -0.12403481, -0.992278, 1.0733471e-06, 9.7508455e-06, -1.3715544e-07, 0.99999994, 0.19562009, -0.07591037, -1.438809e-07)
+
+[node name="Bone_009" parent="dwarf/Armature/Skeleton3D" index="9"]
+transform = Transform3D(-0.95114887, 0.30873272, 9.467374e-06, -0.30873275, -0.9511488, 2.2732022e-06, 9.706694e-06, -7.607345e-07, 0.99999994, 0.13041341, 0.12497947, 1.6792017e-08)
+
+[node name="Bone_012" parent="dwarf/Armature/Skeleton3D" index="10"]
+transform = Transform3D(-0.99910855, -0.042215854, -1.2126846e-05, 0.04221596, -0.9991084, 4.1558155e-07, -1.213358e-05, -9.673431e-08, 0.99999994, -0.19290316, -0.07862731, -1.3767048e-07)
+
+[node name="Bone_011" parent="dwarf/Armature/Skeleton3D" index="11"]
+transform = Transform3D(-0.95993686, -0.28021666, -1.1878909e-05, 0.28021672, -0.9599366, 2.6829282e-06, -1.2154804e-05, -7.532273e-07, 0.99999994, -0.1358473, 0.11682866, 1.5696866e-08)
+
+[editable path="dwarf"]

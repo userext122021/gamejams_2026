@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu6ovv5ldnvot"]
+
+[ext_resource type="PackedScene" uid="uid://6hs4q7gqlkvo" path="res://test/base_test_scene/base_test_scene.tscn" id="1_pm1mv"]
+[ext_resource type="PackedScene" uid="uid://drkjc53gkuhe5" path="res://game/player.tscn" id="2_2q5x4"]
+
+[node name="GreenWorld" instance=ExtResource("1_pm1mv")]
+
+[node name="Player" parent="." index="3" instance=ExtResource("2_2q5x4")]
