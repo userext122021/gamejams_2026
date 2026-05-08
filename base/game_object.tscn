@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drxpbbi1hnujk"]
+
+[ext_resource type="Script" uid="uid://basddyv5spj23" path="res://base/game_object.gd" id="1_oj3ud"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oj3ud"]
+size = Vector3(1.6, 2.5, 1)
+
+[node name="GameObject" type="Node3D"]
+script = ExtResource("1_oj3ud")
+
+[node name="InteractionBody" type="StaticBody3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_oj3ud")

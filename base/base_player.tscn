@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://buf18s0gdnwje"]
+
+[ext_resource type="Script" uid="uid://bcelfgtg0v3vk" path="res://base/base_player.gd" id="1_gcw0t"]
+[ext_resource type="AudioStream" uid="uid://ba5f58pix705o" path="res://assets/sounds/step.wav" id="2_22ano"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ankp5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mpu8o"]
+size = Vector3(0.2, 0.2, 1)
+
+[node name="BasePlayer" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_gcw0t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ankp5")
+
+[node name="Hands" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0.2)
+
+[node name="RightHand" type="Node3D" parent="Hands"]
+transform = Transform3D(0.9848077, 0, -0.1736482, 0.059391174, 0.9396926, 0.33682406, 0.16317593, -0.34202012, 0.9254165, 0.8, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hands/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.100000024, -0.5)
+mesh = SubResource("BoxMesh_mpu8o")
+
+[node name="RightHandMarker" type="Marker3D" parent="Hands/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+
+[node name="RayCast3D" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19999999)
+target_position = Vector3(0, -0.2, -2)
+collision_mask = 4
+
+[node name="FocusLabel" type="Label3D" parent="Head/RayCast3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.20000002)
+text = "Test"
+font_size = 12
+outline_size = 8
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="StepSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("2_22ano")

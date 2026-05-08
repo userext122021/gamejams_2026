@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc1m0h5sl0r5w"]
+
+[ext_resource type="PackedScene" uid="uid://drxpbbi1hnujk" path="res://base/game_object.tscn" id="1_0kdlk"]
+[ext_resource type="PackedScene" uid="uid://c3abrtc7t2ujk" path="res://assets/models/test_kit/sm_vending-col.glb" id="2_5cm4r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bsvu5"]
+size = Vector3(0.8, 1.7, 0.5)
+
+[node name="VendingMachine" instance=ExtResource("1_0kdlk")]
+object_name = "vending_machine"
+is_interactive = true
+
+[node name="CollisionShape3D" parent="InteractionBody" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.9, 0.5500001)
+shape = SubResource("BoxShape3D_bsvu5")
+
+[node name="sm_vending-col2" parent="." index="1" instance=ExtResource("2_5cm4r")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, 0.70000005)
+light_energy = 0.175
+omni_range = 0.886

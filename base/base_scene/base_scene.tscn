@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://0455thl33guk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmao6"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="Gradient" id="Gradient_kgxf2"]
+offsets = PackedFloat32Array(0, 0.22540984, 0.3442623, 0.5491803, 1)
+colors = PackedColorArray(0.38359725, 0.38359725, 0.38359737, 1, 0.5369384, 0.5369384, 0.53693837, 1, 0.5150763, 0.5150763, 0.5150762, 1, 0.62763536, 0.62763536, 0.62763524, 1, 0.7162962, 0.7162962, 0.7162962, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gqi4n"]
+frequency = 0.0617
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_esnsu"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_gqi4n")
+color_ramp = SubResource("Gradient_kgxf2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbl3d"]
+albedo_color = Color(0.56496125, 0.5649618, 0.5649613, 1)
+albedo_texture = SubResource("NoiseTexture2D_esnsu")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jpaac"]
+material = SubResource("StandardMaterial3D_fbl3d")
+size = Vector2(64, 64)
+
+[sub_resource type="Environment" id="Environment_wicyu"]
+
+[node name="BaseScene" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jmao6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_jpaac")
+skeleton = NodePath("../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wicyu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 17, 0)

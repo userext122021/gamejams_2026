@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b67yniocp50vq"]
+
+[ext_resource type="PackedScene" uid="uid://5fnxft813am7" path="res://game/locations/hall/hall.tscn" id="1_v504t"]
+[ext_resource type="PackedScene" uid="uid://cj4ukc6c74dxl" path="res://game/locations/room1/room_1.tscn" id="3_26ldn"]
+[ext_resource type="PackedScene" uid="uid://cyo4hmbx2roke" path="res://game/locations/room2/room_2.tscn" id="10_d8hry"]
+
+[node name="TestLocation2" type="Node3D"]
+
+[node name="Hall" parent="." instance=ExtResource("1_v504t")]
+
+[node name="Room2" parent="." instance=ExtResource("10_d8hry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0999994, 0, -22)
+
+[node name="Room1" parent="." instance=ExtResource("3_26ldn")]

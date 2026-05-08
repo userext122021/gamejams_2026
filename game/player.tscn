@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx06w66mcajna"]
+
+[ext_resource type="PackedScene" uid="uid://buf18s0gdnwje" path="res://base/base_player.tscn" id="1_dadds"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dadds"]
+radius = 0.3
+height = 1.6
+
+[node name="Player" instance=ExtResource("1_dadds")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CapsuleShape3D_dadds")

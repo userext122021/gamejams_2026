@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://c021l0rsnuhas"]
+
+[ext_resource type="PackedScene" uid="uid://cj4ukc6c74dxl" path="res://game/locations/room1/room_1.tscn" id="1_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://5fnxft813am7" path="res://game/locations/hall/hall.tscn" id="1_vasa2"]
+[ext_resource type="PackedScene" uid="uid://cx06w66mcajna" path="res://game/player.tscn" id="2_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://cyo4hmbx2roke" path="res://game/locations/room2/room_2.tscn" id="3_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://bdu7gxa1k5rgn" path="res://game/game_scene.tscn" id="5_dxrkv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4fuuu"]
+
+[sub_resource type="Sky" id="Sky_dxrkv"]
+sky_material = SubResource("ProceduralSkyMaterial_4fuuu")
+
+[sub_resource type="Environment" id="Environment_dakft"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_dxrkv")
+
+[node name="Game" type="Node"]
+
+[node name="Room1" parent="." instance=ExtResource("1_4fuuu")]
+
+[node name="Hall" parent="." instance=ExtResource("1_vasa2")]
+
+[node name="Room2" parent="." instance=ExtResource("3_dxrkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -22)
+
+[node name="Player" parent="." instance=ExtResource("2_h7iqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 9, 0)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dakft")
+
+[node name="GameScene" parent="." instance=ExtResource("5_dxrkv")]

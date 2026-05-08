@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ujgb2qa6c17y"]
+
+[ext_resource type="PackedScene" uid="uid://drxpbbi1hnujk" path="res://base/game_object.tscn" id="1_o4upn"]
+[ext_resource type="Script" uid="uid://bll6ewy2d1i4b" path="res://game/game_objects/ladder/ladder.gd" id="2_cgt2o"]
+[ext_resource type="PackedScene" uid="uid://dcrpnovkh0hf6" path="res://assets/models/test_kit/ladder.glb" id="2_n60m5"]
+
+[node name="Ladder" instance=ExtResource("1_o4upn")]
+script = ExtResource("2_cgt2o")
+object_name = "ladder"
+is_interactive = true
+focus_text = "E - climb"
+
+[node name="InteractionBody" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, -0.90000004)
+
+[node name="CollisionShape3D" parent="InteractionBody" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0.59999996)
+
+[node name="ladder" parent="." index="1" instance=ExtResource("2_n60m5")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, -1, 0)
+
+[node name="DownMarker" type="Marker3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0.90000004)
+
+[node name="UpMarker" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4000001, -1.3)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://k8bghihkhicy"]
+
+[ext_resource type="PackedScene" uid="uid://drxpbbi1hnujk" path="res://base/game_object.tscn" id="1_1jes4"]
+[ext_resource type="PackedScene" uid="uid://cedr1bi3485ir" path="res://assets/models/test_kit/door.glb" id="2_gc1ch"]
+[ext_resource type="Script" uid="uid://0ilvr41yyyp6" path="res://test/test_location/objects/door.gd" id="2_r2otf"]
+
+[node name="Door" instance=ExtResource("1_1jes4")]
+script = ExtResource("2_r2otf")
+is_interactive = true
+focus_text = "E - open"
+
+[node name="CollisionShape3D" parent="InteractionBody" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 1.25, 0)
+
+[node name="door" parent="." index="1" instance=ExtResource("2_gc1ch")]
+
+[editable path="door"]

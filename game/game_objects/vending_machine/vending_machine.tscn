@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpf00dwky73n0"]
+
+[ext_resource type="PackedScene" uid="uid://c3abrtc7t2ujk" path="res://assets/models/test_kit/sm_vending-col.glb" id="1_dob1b"]
+
+[node name="VendingMachine" type="Node3D"]
+
+[node name="sm_vending-col2" parent="." instance=ExtResource("1_dob1b")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0.7)
+omni_range = 1.0

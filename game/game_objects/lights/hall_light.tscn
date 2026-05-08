@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8tknxer1aq51"]
+
+[ext_resource type="Script" uid="uid://d1p2rg4u4150w" path="res://game/game_objects/lights/hall_light.gd" id="1_ip5gt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35dlt"]
+albedo_color = Color(0.824576, 0.8516398, 0.90045327, 1)
+emission_enabled = true
+emission = Color(0.86036915, 0.8603692, 0.8603692, 1)
+emission_energy_multiplier = 1.72
+
+[sub_resource type="BoxMesh" id="BoxMesh_1emmq"]
+material = SubResource("StandardMaterial3D_35dlt")
+
+[node name="HallLight" type="Node3D"]
+script = ExtResource("1_ip5gt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.099999964, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_1emmq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3, 0)
+light_color = Color(0.9188916, 0.99999994, 0.99977654, 1)
+light_energy = 2.0
+omni_range = 2.6000001

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4m0h8s5vk3lq"]
+
+[ext_resource type="PackedScene" uid="uid://drxpbbi1hnujk" path="res://base/game_object.tscn" id="1_b2xxg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bunjk"]
+height = 0.5
+radius = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dwc4v"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.15
+
+[node name="TestCup" instance=ExtResource("1_b2xxg")]
+is_interactive = true
+focus_text = "E - pick up"
+is_pickable = true
+
+[node name="CollisionShape3D" parent="InteractionBody" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("CylinderShape3D_bunjk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CylinderMesh_dwc4v")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://btjugqbsrsc20"]
+
+[ext_resource type="PackedScene" uid="uid://drxpbbi1hnujk" path="res://base/game_object.tscn" id="1_5mr34"]
+[ext_resource type="Script" uid="uid://0vv6pniathhd" path="res://test/test_location/objects/table.gd" id="2_8ejgw"]
+[ext_resource type="PackedScene" uid="uid://d4d7nojgjmcqb" path="res://assets/models/test_kit/table.glb" id="2_i22pj"]
+[ext_resource type="PackedScene" uid="uid://c4m0h8s5vk3lq" path="res://test/test_location/loot/test_cup.tscn" id="4_gdq8c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ejgw"]
+size = Vector3(2, 1, 1)
+
+[node name="Table" instance=ExtResource("1_5mr34")]
+script = ExtResource("2_8ejgw")
+object_name = "table"
+is_interactive = true
+focus_text = "E - open"
+
+[node name="table2" parent="." index="0" instance=ExtResource("2_i22pj")]
+
+[node name="TestCup" parent="table2/box" index="2" instance=ExtResource("4_gdq8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030000031, 0.100000024, 0.019837976)
+
+[node name="CollisionShape3D" parent="InteractionBody" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.5, 0)
+shape = SubResource("BoxShape3D_8ejgw")
+
+[editable path="table2"]

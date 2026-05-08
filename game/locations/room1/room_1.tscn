@@ -1,0 +1,157 @@
+[gd_scene load_steps=10 format=3 uid="uid://cj4ukc6c74dxl"]
+
+[ext_resource type="Script" uid="uid://duwagx88s742b" path="res://game/locations/room.gd" id="1_7f5dx"]
+[ext_resource type="PackedScene" uid="uid://dyfhp5bv1p8io" path="res://assets/models/test_kit/floor-col.glb" id="1_qqmr3"]
+[ext_resource type="PackedScene" uid="uid://bstl5sfq7bavp" path="res://assets/models/test_kit/sm_brick_wall_with_window-col.glb" id="2_mk3oi"]
+[ext_resource type="PackedScene" uid="uid://rif2010xjwei" path="res://assets/models/test_kit/window.glb" id="3_rh0p1"]
+[ext_resource type="PackedScene" uid="uid://bpkduhano53q4" path="res://assets/models/test_kit/sm_brick_wall_1m-col.glb" id="4_3fwp2"]
+[ext_resource type="PackedScene" uid="uid://cl2cas6vrxtbm" path="res://assets/models/test_kit/sm_brick_double_wall-col.glb" id="5_58uyj"]
+[ext_resource type="PackedScene" uid="uid://bb5a1xff7f6da" path="res://assets/models/test_kit/sm_brick_double_wall_02-col.glb" id="6_nh156"]
+[ext_resource type="PackedScene" uid="uid://m8dcid6576xc" path="res://assets/models/test_kit/sm_brick_wall_with_door-col.glb" id="7_o5yss"]
+[ext_resource type="PackedScene" uid="uid://munua0v35551" path="res://game/game_objects/lights/light.tscn" id="8_1j6lq"]
+
+[node name="Room1" type="Node3D"]
+script = ExtResource("1_7f5dx")
+
+[node name="Floor" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="floor-col2" parent="Floor" instance=ExtResource("1_qqmr3")]
+metadata/_edit_lock_ = true
+
+[node name="floor-col3" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="floor-col4" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="floor-col11" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col12" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col13" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col5" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col6" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col7" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col8" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="floor-col9" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="floor-col10" parent="Floor" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="Celling" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1000001, 0)
+
+[node name="floor-col2" parent="Celling" instance=ExtResource("1_qqmr3")]
+metadata/_edit_lock_ = true
+
+[node name="floor-col3" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="floor-col4" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="floor-col11" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col12" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col13" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col5" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col6" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col7" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+metadata/_edit_lock_ = true
+
+[node name="floor-col8" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="floor-col9" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="floor-col10" parent="Celling" instance=ExtResource("1_qqmr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="sm_brick_wall_with_window-col2" parent="Walls" instance=ExtResource("2_mk3oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2.8)
+
+[node name="window" parent="Walls/sm_brick_wall_with_window-col2" instance=ExtResource("3_rh0p1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0.2)
+
+[node name="sm_brick_wall_1m-col2" parent="Walls" instance=ExtResource("4_3fwp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.1, 2.8)
+
+[node name="sm_brick_wall_1m-col3" parent="Walls" instance=ExtResource("4_3fwp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.1, 2.8)
+
+[node name="sm_brick_wall_1m-col4" parent="Walls" instance=ExtResource("4_3fwp2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.5, 0.1, -4.8)
+
+[node name="sm_brick_wall_1m-col5" parent="Walls" instance=ExtResource("4_3fwp2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.5, 0.1, -4.8)
+
+[node name="sm_brick_double_wall-col2" parent="Walls" instance=ExtResource("5_58uyj")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.1, -4.8)
+
+[node name="sm_brick_double_wall-col3" parent="Walls" instance=ExtResource("5_58uyj")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.8, 0.1, -2.8000002)
+
+[node name="sm_brick_double_wall_02-col2" parent="Walls" instance=ExtResource("6_nh156")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.8, 0.1, 1)
+
+[node name="sm_brick_double_wall_02-col3" parent="Walls" instance=ExtResource("6_nh156")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8, 0.1, 1)
+
+[node name="sm_brick_wall_with_door-col2" parent="Walls" instance=ExtResource("7_o5yss")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8, 0.1, -2.8000002)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="Light" parent="Lights" instance=ExtResource("8_1j6lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -3.2000003)
+
+[node name="Light2" parent="Lights" instance=ExtResource("8_1j6lq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -0.20000029)

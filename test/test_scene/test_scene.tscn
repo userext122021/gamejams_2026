@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5a6nv0uu25ks"]
+
+[ext_resource type="PackedScene" uid="uid://0455thl33guk" path="res://base/base_scene/base_scene.tscn" id="1_r7qtk"]
+[ext_resource type="PackedScene" uid="uid://buf18s0gdnwje" path="res://base/base_player.tscn" id="2_ld8i6"]
+[ext_resource type="Script" uid="uid://xylc1kpmvnqg" path="res://test/test_scene/test_scene.gd" id="2_t7mfc"]
+[ext_resource type="PackedScene" uid="uid://gioiq3ql1e7c" path="res://test/test_scene/test_object/test_object.tscn" id="4_dolt4"]
+
+[node name="TestScene" instance=ExtResource("1_r7qtk")]
+script = ExtResource("2_t7mfc")
+
+[node name="BasePlayer" parent="." index="3" instance=ExtResource("2_ld8i6")]
+
+[node name="TestObject" parent="." index="4" instance=ExtResource("4_dolt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+is_interactive = true
+is_pickable = true
+
+[connection signal="interaction_started" from="BasePlayer" to="." method="_on_base_player_interaction_started"]
+[connection signal="object_dropped" from="BasePlayer" to="." method="_on_base_player_object_dropped"]
