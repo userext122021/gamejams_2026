@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://plp36n2ayk6s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xdcaj"]
+size = Vector3(64, 1, 64)
+
+[sub_resource type="Gradient" id="Gradient_gpwnb"]
+offsets = PackedFloat32Array(0, 0.20491803, 0.30737704, 1)
+colors = PackedColorArray(0.36094868, 0.36094868, 0.36094865, 1, 0.68571246, 0.68571246, 0.68571246, 1, 0.5573784, 0.5573784, 0.55737835, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qogh2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pm12u"]
+noise = SubResource("FastNoiseLite_qogh2")
+color_ramp = SubResource("Gradient_gpwnb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihr7c"]
+albedo_color = Color(0.42557132, 0.42557135, 0.42557132, 1)
+albedo_texture = SubResource("NoiseTexture2D_pm12u")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a3h6l"]
+material = SubResource("StandardMaterial3D_ihr7c")
+size = Vector2(64, 64)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3flrc"]
+
+[sub_resource type="Sky" id="Sky_g5nqu"]
+sky_material = SubResource("ProceduralSkyMaterial_3flrc")
+
+[sub_resource type="Environment" id="Environment_wqthe"]
+background_mode = 2
+sky = SubResource("Sky_g5nqu")
+
+[node name="BaseTestScene" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_xdcaj")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_a3h6l")
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 14, 0)
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wqthe")

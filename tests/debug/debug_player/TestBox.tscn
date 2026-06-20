@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw4fnc7kjloyi"]
+
+[ext_resource type="Script" uid="uid://dsi415i414hbf" path="res://tests/debug/debug_player/test_box.gd" id="1_1kbkd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1sv2l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kbkd"]
+albedo_color = Color(0.50980395, 0.40784314, 0.21568628, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1kbkd"]
+material = SubResource("StandardMaterial3D_1kbkd")
+
+[node name="TestBox" type="StaticBody3D"]
+script = ExtResource("1_1kbkd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_1sv2l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_1kbkd")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://brib3uask05es"]
+
+[ext_resource type="PackedScene" uid="uid://plp36n2ayk6s" path="res://tests/test_scenes/base_test_scene/base_test_scene.tscn" id="1_xxdr5"]
+[ext_resource type="PackedScene" uid="uid://c6rvjvxo044cw" path="res://core/components/interactable_component/interactable_component.tscn" id="2_3wtfr"]
+[ext_resource type="Script" uid="uid://cv2g3pinp2k2l" path="res://tests/debug/debug_player/box.gd" id="3_em6hq"]
+[ext_resource type="PackedScene" uid="uid://cilmcnv8g6dbx" path="res://tests/debug/debug_player/debug_player.tscn" id="4_kohnl"]
+[ext_resource type="PackedScene" uid="uid://dw4fnc7kjloyi" path="res://tests/debug/debug_player/TestBox.tscn" id="5_nacc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5a68o"]
+albedo_color = Color(0.57254905, 0.8, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_em6hq"]
+material = SubResource("StandardMaterial3D_5a68o")
+
+[node name="DebugPlayerTestScene" instance=ExtResource("1_xxdr5")]
+
+[node name="InteractableComponent" parent="." index="3" instance=ExtResource("2_3wtfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+script = ExtResource("3_em6hq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractableComponent" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_em6hq")
+
+[node name="DebugPlayer" parent="." index="4" instance=ExtResource("4_kohnl")]
+
+[node name="TestBox" parent="." index="5" instance=ExtResource("5_nacc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7000003, 0, -6.9)

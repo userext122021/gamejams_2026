@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cov2h7a7lj2f1"]
+
+[ext_resource type="PackedScene" uid="uid://dp5kmer2d3idh" path="res://core/components/weapon_component/weapon_component.tscn" id="1_rpsoq"]
+
+[node name="DebugWeaponComponent" instance=ExtResource("1_rpsoq")]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkl64fax8yhn3"]
+
+[ext_resource type="PackedScene" uid="uid://hl8hoorfesmc" path="res://core/entities/base_player/base_player.tscn" id="1_ig6yi"]
+[ext_resource type="PackedScene" uid="uid://c50pgydawbat6" path="res://core/components/stats_component/stats_component.tscn" id="2_dkug3"]
+[ext_resource type="PackedScene" uid="uid://q4uux6rjiuat" path="res://core/components/battle_component/battle_component.tscn" id="3_41kl7"]
+[ext_resource type="PackedScene" uid="uid://bnejoadnsysi1" path="res://core/components/inventory_component/inventory_component.tscn" id="4_4j1be"]
+[ext_resource type="PackedScene" uid="uid://ca4px5l5joiso" path="res://core/components/animation_component/animation_component.tscn" id="5_mwnbk"]
+[ext_resource type="PackedScene" uid="uid://dp5kmer2d3idh" path="res://core/components/weapon_component/weapon_component.tscn" id="6_kbq2q"]
+[ext_resource type="Resource" uid="uid://comb8x0ppr5y" path="res://tests/test_resources/weapons/test_knife/test_knife_item.tres" id="7_u16cb"]
+
+[sub_resource type="Animation" id="Animation_1oekq"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/WeaponMarker")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.7, -0.6, -0.4)
+
+[sub_resource type="Animation" id="Animation_yaj60"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/WeaponMarker")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.7, -0.6, -0.4, 0.26666668, 1, 0.7, -0.6, -1.2, 0.59, 1, 0.7, -0.6, -0.4)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ed8ss"]
+_data = {
+&"RESET": SubResource("Animation_1oekq"),
+&"attack": SubResource("Animation_yaj60")
+}
+
+[node name="BasePlayer" node_paths=PackedStringArray("stats_component", "weapon_component", "inventory_component", "battle_component", "animation_component") instance=ExtResource("1_ig6yi")]
+entity_name = "test_player"
+entity_type = "player"
+stats_component = NodePath("StatsComponent")
+weapon_component = NodePath("Head/WeaponMarker/WeaponComponent")
+inventory_component = NodePath("InventoryComponent")
+battle_component = NodePath("BattleComponent")
+animation_component = NodePath("AnimationComponent")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_ed8ss")
+}
+
+[node name="WeaponMarker" type="Node3D" parent="Head" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.6, -0.4)
+
+[node name="WeaponComponent" parent="Head/WeaponMarker" index="0" node_paths=PackedStringArray("weapon_marker") instance=ExtResource("6_kbq2q")]
+weapon_marker = NodePath("..")
+initial_weapon_item = ExtResource("7_u16cb")
+
+[node name="StatsComponent" parent="." index="3" instance=ExtResource("2_dkug3")]
+
+[node name="BattleComponent" parent="." index="4" instance=ExtResource("3_41kl7")]
+
+[node name="InventoryComponent" parent="." index="5" instance=ExtResource("4_4j1be")]
+
+[node name="AnimationComponent" parent="." index="6" node_paths=PackedStringArray("animation_player") instance=ExtResource("5_mwnbk")]
+animation_player = NodePath("../AnimationPlayer")

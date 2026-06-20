@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://d210boymlhvm7"]
+
+[ext_resource type="PackedScene" uid="uid://cjmmv2tu1q1hy" path="res://core/entities/base_entity/base_entity.tscn" id="1_weh62"]
+[ext_resource type="Script" uid="uid://cto0411crukha" path="res://tests/test_entities/test_enemy/base_test_enemy.gd" id="2_ip1dd"]
+[ext_resource type="PackedScene" uid="uid://cdmf281hm2yrj" path="res://core/components/navigation_component/navigation_component.tscn" id="2_y4gks"]
+[ext_resource type="PackedScene" uid="uid://dydwkjhcb4pm7" path="res://core/components/damage_component/damage_component.tscn" id="4_siqlt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ip1dd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_siqlt"]
+size = Vector3(0.6, 0.1, 0.1)
+
+[node name="BaseTestEnemy" node_paths=PackedStringArray("navigation_component", "damage_component") instance=ExtResource("1_weh62")]
+script = ExtResource("2_ip1dd")
+entity_name = "test_enemy"
+entity_type = "enemy"
+walk_speed = 2.0
+navigation_component = NodePath("NavigationComponent")
+damage_component = NodePath("DamageComponent")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+mesh = SubResource("CapsuleMesh_ip1dd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39999998, -0.5)
+mesh = SubResource("BoxMesh_siqlt")
+
+[node name="NavigationComponent" parent="." index="2" node_paths=PackedStringArray("navigation_agent") instance=ExtResource("2_y4gks")]
+navigation_agent = NodePath("NavigationAgent3D")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="NavigationComponent" index="0"]
+
+[node name="DamageComponent" parent="." index="3" instance=ExtResource("4_siqlt")]

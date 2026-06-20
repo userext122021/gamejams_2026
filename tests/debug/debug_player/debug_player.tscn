@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://cilmcnv8g6dbx"]
+
+[ext_resource type="PackedScene" uid="uid://hl8hoorfesmc" path="res://core/entities/base_player/base_player.tscn" id="1_is2ox"]
+[ext_resource type="Script" uid="uid://n7vf4iiyq0ya" path="res://tests/debug/debug_player/debug_player.gd" id="2_gp6cx"]
+[ext_resource type="PackedScene" uid="uid://dp5kmer2d3idh" path="res://core/components/weapon_component/weapon_component.tscn" id="3_m1kt8"]
+[ext_resource type="Resource" uid="uid://comb8x0ppr5y" path="res://tests/test_resources/weapons/test_knife/test_knife_item.tres" id="4_boofp"]
+[ext_resource type="PackedScene" uid="uid://8uc3xxw7xh33" path="res://tests/debug/debug_player/battle_component.tscn" id="5_73wmu"]
+[ext_resource type="PackedScene" uid="uid://ca4px5l5joiso" path="res://core/components/animation_component/animation_component.tscn" id="6_btutg"]
+
+[sub_resource type="Animation" id="Animation_r8wvc"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/WeaponMarker")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.06666667, 1, 0.8, -0.70000005, -0.19999999, 0.26666668, 1, 0.8, -0.70000005, -1.8, 0.57, 1, 0.8, -0.70000005, -0.19999999)
+
+[sub_resource type="Animation" id="Animation_qjmlf"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/WeaponMarker")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.8, -0.70000005, -0.8)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fsn4"]
+_data = {
+&"RESET": SubResource("Animation_qjmlf"),
+&"attack": SubResource("Animation_r8wvc")
+}
+
+[node name="DebugPlayer" node_paths=PackedStringArray("weapon_component", "battle_component", "animation_component") instance=ExtResource("1_is2ox")]
+script = ExtResource("2_gp6cx")
+weapon_component = NodePath("Head/WeaponMarker/WeaponComponent")
+battle_component = NodePath("Components/BattleComponent")
+animation_component = NodePath("AnimationComponent")
+
+[node name="BattleComponent" parent="Components" index="1" instance=ExtResource("5_73wmu")]
+
+[node name="WeaponMarker" type="Node3D" parent="Head" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.70000005, -0.8)
+
+[node name="WeaponComponent" parent="Head/WeaponMarker" index="0" node_paths=PackedStringArray("weapon_marker") instance=ExtResource("3_m1kt8")]
+weapon_marker = NodePath("..")
+initial_weapon_item = ExtResource("4_boofp")
+
+[node name="AnimationComponent" parent="." index="3" node_paths=PackedStringArray("animation_player") instance=ExtResource("6_btutg")]
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationComponent" index="0"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_2fsn4")
+}

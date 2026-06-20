@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://comb8x0ppr5y"]
+
+[ext_resource type="PackedScene" uid="uid://du06gvi8qy7qr" path="res://tests/test_resources/weapons/test_knife/test_knife_model.tscn" id="1_81l6o"]
+[ext_resource type="Script" uid="uid://cgs6ivtn7d3hv" path="res://core/resources/item/item_data.gd" id="1_u8jgq"]
+
+[resource]
+script = ExtResource("1_u8jgq")
+item_name = "test_knife"
+item_class = "weapon"
+is_wearable = true
+item_scene = ExtResource("1_81l6o")
+data_path = "/Volumes/Extern HDD/Git/godot_component_survival_rpg/tests/test_resources/weapons/test_knife/test_knife_data.tres"
+metadata/_custom_type_script = "uid://cgs6ivtn7d3hv"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=2 format=3 uid="uid://iyucd36amhfc"]
+
+[ext_resource type="Script" uid="uid://bf8v4hrxpoojw" path="res://core/resources/weapon/weapon_data.gd" id="1_bedrc"]
+
+[resource]
+script = ExtResource("1_bedrc")
+range = 1.0
+preparing_time = 0.2
+metadata/_custom_type_script = "uid://bf8v4hrxpoojw"

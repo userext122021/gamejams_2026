@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bivq8e2jgrxkg"]
+
+[ext_resource type="Script" uid="uid://b3t1xdbmok0ov" path="res://core/components/interaction_component/interaction_component.gd" id="1_cbkgt"]
+
+[node name="InteractionComponent" type="Node3D"]
+script = ExtResource("1_cbkgt")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.1, -2)
+
+[node name="Label3D" type="Label3D" parent="RayCast3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.90000004)
+text = "Text"
