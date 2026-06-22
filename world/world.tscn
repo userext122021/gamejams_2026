@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf1yrhrgk6v73"]
+
+[ext_resource type="Script" uid="uid://di4sia835c2m4" path="res://world/world.gd" id="1_6xmxd"]
+[ext_resource type="PackedScene" uid="uid://bbadv0eouesgj" path="res://test/test_location/test_rocks_2/test_rock_2.tscn" id="2_tcf2h"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_6xmxd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 13, 0)
+
+[node name="TestRock2" parent="." instance=ExtResource("2_tcf2h")]

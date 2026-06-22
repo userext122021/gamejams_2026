@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://blnsprjvbns4v"]
+
+[ext_resource type="PackedScene" uid="uid://rs1bjct8cq0t" path="res://interactable/interactable.tscn" id="1_4rgob"]
+[ext_resource type="Script" uid="uid://cmkmonffdhf7h" path="res://pickable_item/pickable_item.gd" id="2_s2h18"]
+
+[node name="Pickable" instance=ExtResource("1_4rgob")]
+script = ExtResource("2_s2h18")
+item_name = "apple"
+amount = 1.0
+hover_text = "E - interact"

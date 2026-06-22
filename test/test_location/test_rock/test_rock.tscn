@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dolpowk68etg3"]
+
+[ext_resource type="PackedScene" uid="uid://6pyhwo88xunq" path="res://test/test_resources/interactable_box/interactable_box.tscn" id="1_usmxo"]
+[ext_resource type="PackedScene" uid="uid://jpfu1i2fid2d" path="res://assets/models/rocks/rock.blend" id="2_usmxo"]
+[ext_resource type="PackedScene" uid="uid://d4hk8unjr5v10" path="res://test/test_enemy/test_enemy.tscn" id="2_witqn"]
+[ext_resource type="PackedScene" uid="uid://xs8ob48yk5je" path="res://game/resources/interactable/box/box.tscn" id="4_0ahyn"]
+[ext_resource type="PackedScene" uid="uid://dlnodpj1nu1f2" path="res://test/test_resources/pickable_item/apple.tscn" id="5_l788j"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_qbrlq"]
+vertices = PackedVector3Array(8.100954, 0.39078903, -3.6959972, 7.350954, 0.39078903, -2.9459972, 7.350954, 0.39078903, -2.6959972, 8.850954, 0.39078903, -2.9459972, 9.350954, 0.39078903, -9.445997, 6.600954, 0.39078903, -6.695997, 8.100954, 0.39078903, -4.695997, 0.60095406, 0.39078903, -12.945997, -0.14904594, 0.39078903, -12.945997, 0.100954056, 0.39078903, -11.445997, -10.399046, 0.39078903, 0.05400276, -11.649046, 0.39078903, 0.05400276, -11.649046, 0.39078903, 1.0540028, -0.64904594, 0.39078903, -10.445997, -0.14904594, 0.39078903, -9.195997, 10.100954, 0.39078903, -1.6959972, 15.350954, 0.39078903, -0.19599724, -13.399046, 0.39078903, 2.5540028, -9.649046, 0.39078903, 9.054003, -7.399046, 0.39078903, 5.804003, 0.85095406, 0.39078903, 9.054003, 0.100954056, 0.39078903, 13.054003, 9.600954, 0.39078903, 9.304003, 6.350954, 0.39078903, 6.804003, 10.600954, 0.39078903, -0.94599724, -6.399046, 0.39078903, 6.804003, -8.399046, 0.39078903, 9.804003, 10.600954, 0.39078903, 0.80400276, -0.89904594, 0.39078903, 9.054003, -1.149046, 0.39078903, -9.945997, -2.649046, 0.39078903, -9.945997, -2.899046, 0.39078903, -9.445997, -11.899046, 0.39078903, -1.1959972, -7.899046, 0.39078903, -4.945997, -6.149046, 0.39078903, -6.945997, -4.649046, 0.39078903, -9.445997, -6.149046, 0.39078903, -10.695997, -9.649046, 0.39078903, -9.195997, -13.399046, 0.39078903, -2.4459972, 6.100954, 0.39078903, -2.6959972, 6.600954, 0.39078903, -1.9459972, -4.399046, 0.39078903, 4.304003, -0.64904594, 0.39078903, 5.804003, 0.60095406, 0.39078903, 5.804003, 5.100954, 0.39078903, -3.9459972, 5.100954, 0.39078903, 3.8040028, 7.350954, 0.39078903, 0.05400276, -0.14904594, 0.39078903, -5.945997, -4.649046, 0.39078903, -4.195997, -6.899046, 0.39078903, -0.44599724, -6.899046, 0.39078903, 0.30400276, -0.64904594, 10.390789, 4.804003, 0.60095406, 10.390789, 4.804003, 3.850954, 10.390789, 3.5540028, 0.47595406, 10.640789, 4.491503, -3.899046, 10.390789, -3.4459972, -5.649046, 10.390789, -0.44599724, -4.149046, 10.390789, 3.0540028, -4.0490456, 11.390789, 0.45400238, -5.149046, 10.640789, 0.72066975, 6.100954, 10.390789, 0.05400276, 3.850954, 10.390789, -3.4459972, 3.850954, 11.390789, -0.64599705, 3.850954, 11.390789, 0.7540035, 0.35095406, 10.390789, -4.945997, 0.8609657, 11.390789, -3.4600096, -2.1338768, 11.390789, 2.5328217, 2.3711605, 11.390789, 2.5657845, -0.67404556, 11.390789, -3.4709969)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(9, 8, 7), PackedInt32Array(12, 11, 10), PackedInt32Array(3, 0, 6), PackedInt32Array(14, 13, 9), PackedInt32Array(3, 6, 15), PackedInt32Array(15, 6, 4), PackedInt32Array(15, 4, 16), PackedInt32Array(9, 7, 14), PackedInt32Array(14, 7, 5), PackedInt32Array(5, 7, 4), PackedInt32Array(12, 10, 17), PackedInt32Array(17, 10, 19), PackedInt32Array(17, 19, 18), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(24, 15, 16), PackedInt32Array(26, 18, 25), PackedInt32Array(25, 18, 19), PackedInt32Array(23, 27, 22), PackedInt32Array(22, 27, 16), PackedInt32Array(25, 28, 26), PackedInt32Array(26, 28, 21), PackedInt32Array(27, 24, 16), PackedInt32Array(21, 28, 20), PackedInt32Array(14, 29, 13), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 14), PackedInt32Array(11, 32, 10), PackedInt32Array(10, 32, 33), PackedInt32Array(36, 35, 34), PackedInt32Array(35, 31, 34), PackedInt32Array(34, 31, 14), PackedInt32Array(36, 34, 37), PackedInt32Array(37, 34, 33), PackedInt32Array(37, 33, 38), PackedInt32Array(38, 33, 32), PackedInt32Array(2, 40, 1), PackedInt32Array(1, 40, 39), PackedInt32Array(43, 42, 41), PackedInt32Array(39, 40, 44), PackedInt32Array(44, 40, 46), PackedInt32Array(44, 46, 45), PackedInt32Array(43, 41, 45), PackedInt32Array(45, 41, 44), PackedInt32Array(44, 41, 47), PackedInt32Array(47, 41, 48), PackedInt32Array(49, 48, 50), PackedInt32Array(50, 48, 41), PackedInt32Array(51, 54, 52), PackedInt32Array(52, 54, 53), PackedInt32Array(57, 59, 58), PackedInt32Array(58, 59, 56), PackedInt32Array(58, 56, 55), PackedInt32Array(53, 63, 60), PackedInt32Array(60, 63, 62), PackedInt32Array(60, 62, 61), PackedInt32Array(54, 67, 53), PackedInt32Array(53, 67, 63), PackedInt32Array(63, 67, 62), PackedInt32Array(62, 65, 61), PackedInt32Array(61, 65, 64), PackedInt32Array(64, 68, 55), PackedInt32Array(55, 68, 58), PackedInt32Array(58, 66, 57), PackedInt32Array(57, 66, 51), PackedInt32Array(51, 66, 54), PackedInt32Array(54, 66, 67), PackedInt32Array(67, 65, 62), PackedInt32Array(65, 68, 64), PackedInt32Array(68, 66, 58), PackedInt32Array(66, 65, 67), PackedInt32Array(65, 66, 68)]
+agent_radius = 1.0
+
+[node name="TestRock" type="Node3D"]
+
+[node name="InteractableBox" parent="." instance=ExtResource("1_usmxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_qbrlq")
+
+[node name="rock" parent="NavigationRegion3D" instance=ExtResource("2_usmxo")]
+
+[node name="TestEnemy" parent="." instance=ExtResource("2_witqn")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+detection_radius = 30.0
+
+[node name="Box" parent="." instance=ExtResource("4_0ahyn")]
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, 0, 0, 4)
+item_name = "yellow key"
+amount = 1.0
+item_name = "yellow key"
+amount = 1.0
+
+[node name="Apple" parent="." instance=ExtResource("5_l788j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)

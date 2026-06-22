@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmfejqsrugqoy"]
+
+[ext_resource type="PackedScene" uid="uid://d4hk8unjr5v10" path="res://test/test_enemy/test_enemy.tscn" id="1_148vx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wywdk"]
+size = Vector3(64, 1, 64)
+
+[sub_resource type="Gradient" id="Gradient_cpv7d"]
+offsets = PackedFloat32Array(0, 0.3647541, 0.4795082, 1)
+colors = PackedColorArray(0.29402778, 0.29402778, 0.29402775, 1, 0.65983605, 0.65983605, 0.65983605, 1, 0.3739071, 0.3739071, 0.3739071, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4nuov"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hbti4"]
+noise = SubResource("FastNoiseLite_4nuov")
+color_ramp = SubResource("Gradient_cpv7d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i21u"]
+albedo_color = Color(0.45646363, 0.4564641, 0.45646387, 1)
+albedo_texture = SubResource("NoiseTexture2D_hbti4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ntp2w"]
+material = SubResource("StandardMaterial3D_2i21u")
+size = Vector2(64, 64)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_148vx"]
+vertices = PackedVector3Array(-48, 0.5, -48, -48, 0.5, 48, 48, 0.5, 48, 48, 0.5, -48)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_radius = 2.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ymn7a"]
+size = Vector2(100, 100)
+
+[node name="TestLocation" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_wywdk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_ntp2w")
+skeleton = NodePath("../..")
+
+[node name="TestEnemy" parent="." instance=ExtResource("1_148vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_148vx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+visible = false
+mesh = SubResource("PlaneMesh_ymn7a")

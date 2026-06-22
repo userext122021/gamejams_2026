@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://xs8ob48yk5je"]
+
+[ext_resource type="PackedScene" uid="uid://rs1bjct8cq0t" path="res://interactable/interactable.tscn" id="1_1ssvk"]
+[ext_resource type="Script" uid="uid://yvdav255awio" path="res://game/resources/interactable/box/box.gd" id="2_ruu6c"]
+[ext_resource type="PackedScene" uid="uid://dlnodpj1nu1f2" path="res://test/test_resources/pickable_item/apple.tscn" id="3_me7jd"]
+[ext_resource type="PackedScene" uid="uid://c320klwyqx5yn" path="res://assets/models/items/box.blend" id="3_vbok1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_me7jd"]
+size = Vector3(2, 2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbok1"]
+size = Vector3(1, 1, 1.4)
+
+[node name="Box" node_paths=PackedStringArray("anim_player") instance=ExtResource("1_1ssvk")]
+script = ExtResource("2_ruu6c")
+item_scene = ExtResource("3_me7jd")
+hover_text = "E - look into the box"
+anim_player = NodePath("StaticBody3D/box/AnimationPlayer")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+shape = SubResource("BoxShape3D_me7jd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="box" parent="StaticBody3D" index="0" instance=ExtResource("3_vbok1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.3)
+
+[node name="Cube_001" parent="StaticBody3D/box" index="1"]
+transform = Transform3D(0.9998477, 0.017452406, 2.3448852e-09, -0.017452406, 0.9998477, -2.0461492e-11, -2.3448852e-09, -2.0465513e-11, 1, 0.45, 0.6, -0.90000004)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.6, 0)
+shape = SubResource("BoxShape3D_vbok1")
+
+[node name="Marker3D" type="Marker3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20000002, 0.20000003, 0)
+
+[editable path="StaticBody3D/box"]

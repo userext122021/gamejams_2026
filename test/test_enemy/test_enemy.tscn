@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://d4hk8unjr5v10"]
+
+[ext_resource type="PackedScene" uid="uid://j4rasfp4cxru" path="res://enemy/enemy.tscn" id="1_51e1h"]
+[ext_resource type="PackedScene" uid="uid://clmhajo11wgub" path="res://test/test_enemy/test_ai.tscn" id="2_t0sag"]
+[ext_resource type="Script" uid="uid://dvw24pl28r5ye" path="res://test/test_enemy/test_ai.gd" id="3_rmqy3"]
+[ext_resource type="PackedScene" uid="uid://b6pllbhsdi7w4" path="res://test/test_enemy/test_enemy_weapon/test_enemy_weapon.tscn" id="4_rmqy3"]
+[ext_resource type="PackedScene" uid="uid://b2qn6sxfai512" path="res://assets/models/bug/bug.blend" id="5_la8pp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_51e1h"]
+
+[sub_resource type="Animation" id="Animation_la8pp"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_rmqy3"]
+resource_name = "attack"
+length = 1.5
+
+[sub_resource type="Animation" id="Animation_y6mj0"]
+resource_name = "dying"
+length = 5.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_la8pp"]
+_data = {
+&"RESET": SubResource("Animation_la8pp"),
+&"attack": SubResource("Animation_rmqy3"),
+&"dying": SubResource("Animation_y6mj0")
+}
+
+[node name="TestEnemy" node_paths=PackedStringArray("ai", "initial_weapon", "anim_player", "weapon_marker") instance=ExtResource("1_51e1h")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, -2.3841856e-07, 0, 2.3841856e-07, 0.99999994, 0, 0, 0)
+attack_distance = 2.0
+ai = NodePath("TestAI")
+initial_weapon = NodePath("bug/Armature/Skeleton3D/Bone_006/WeaponMarker/TestEnemyWeapon")
+anim_player = NodePath("bug/AnimationPlayer")
+weapon_marker = NodePath("bug/Armature/Skeleton3D/Bone_006/WeaponMarker")
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_51e1h")
+
+[node name="TestAI" parent="." index="3" instance=ExtResource("2_t0sag")]
+script = ExtResource("3_rmqy3")
+
+[node name="WeaponMarker" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_la8pp")
+}
+
+[node name="bug" parent="." index="6" instance=ExtResource("5_la8pp")]
+transform = Transform3D(-1, -2.0843212e-14, -8.742277e-08, 2.084321e-14, 0.99999976, -4.7683704e-07, 8.742276e-08, -4.7683704e-07, -0.99999976, 0, 0, 0)
+
+[node name="TestEnemyWeapon" parent="bug/Armature/Skeleton3D/Bone_006/WeaponMarker" index="0" instance=ExtResource("4_rmqy3")]
+transform = Transform3D(-0.9999921, 0.0011690063, -0.0038225676, 2.3632321e-08, 0.9562837, 0.2924415, 0.0039973212, 0.2924393, -0.9562759, 0, 0, 0)
+attack_time = 2.0
+range = 1.0
+force = 600.0
+prepare_time = 0.5
+cooldown_time = 1.0
+
+[editable path="bug"]

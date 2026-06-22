@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://df0l742strjfc"]
+
+[ext_resource type="Script" uid="uid://o7pww17lhiry" path="res://weapon/weapon.gd" id="1_4ht74"]
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("1_4ht74")
+
+[node name="BulletMarker" type="Marker3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)

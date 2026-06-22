@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://6pyhwo88xunq"]
+
+[ext_resource type="PackedScene" uid="uid://rs1bjct8cq0t" path="res://interactable/interactable.tscn" id="1_gbbia"]
+[ext_resource type="Script" uid="uid://bnxhuhtxgyp3f" path="res://test/test_resources/interactable_box/interactable_box.gd" id="2_grdbp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_grdbp"]
+
+[node name="InteractableBox" instance=ExtResource("1_gbbia")]
+script = ExtResource("2_grdbp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_grdbp")

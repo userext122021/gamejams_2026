@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjp0hchklxtyh"]
+
+[ext_resource type="PackedScene" uid="uid://byesmowj213fc" path="res://weapon/bullet.tscn" id="1_80w12"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_njvyq"]
+radius = 0.2
+height = 0.4
+
+[node name="TestBullet" instance=ExtResource("1_80w12")]
+force = 400.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("SphereMesh_njvyq")

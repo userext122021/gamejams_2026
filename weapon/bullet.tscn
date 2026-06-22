@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://byesmowj213fc"]
+
+[ext_resource type="Script" uid="uid://6pbhrw7wc5s8" path="res://weapon/bullet.gd" id="1_d6cvk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d6cvk"]
+custom_solver_bias = 0.2
+radius = 0.2
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_d6cvk")
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+shape = SubResource("SphereShape3D_d6cvk")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

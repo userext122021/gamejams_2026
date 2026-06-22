@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://j4rasfp4cxru"]
+
+[ext_resource type="Script" uid="uid://bcdujj1lorhq" path="res://enemy/enemy.gd" id="1_2mvqj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ofsxj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2mvqj"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_2mvqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ofsxj")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_2mvqj")
+
+[node name="WeaponMarker" type="Marker3D" parent="."]
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

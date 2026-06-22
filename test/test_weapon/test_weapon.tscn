@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://donsnov703u5f"]
+
+[ext_resource type="PackedScene" uid="uid://df0l742strjfc" path="res://weapon/weapon.tscn" id="1_8c2ir"]
+[ext_resource type="PackedScene" uid="uid://bjp0hchklxtyh" path="res://test/test_weapon/test_bullet.tscn" id="2_37ewm"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8c2ir"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.4
+
+[node name="TestWeapon" instance=ExtResource("1_8c2ir")]
+bullet_scene = ExtResource("2_37ewm")
+
+[node name="BulletMarker" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6999999)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -0.70000005)
+mesh = SubResource("CylinderMesh_8c2ir")
