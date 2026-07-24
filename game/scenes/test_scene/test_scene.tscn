@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cpxnuqtvqvt0w"]
+[gd_scene load_steps=22 format=3 uid="uid://cpxnuqtvqvt0w"]
 
 [ext_resource type="PackedScene" uid="uid://7s1olwry8elp" path="res://game/player.tscn" id="1_nkil3"]
 [ext_resource type="Script" uid="uid://vt4lh77x2xpy" path="res://game/scenes/test_scene/test_scene.gd" id="1_q66ax"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c03avvbfka6k6" path="res://game/gui/gui_message.tscn" id="8_52u48"]
 [ext_resource type="PackedScene" uid="uid://oxwb0ie3d0dh" path="res://game/scenes/objects/test/test_note.tscn" id="10_mhei4"]
 [ext_resource type="PackedScene" uid="uid://wmykhsjijacs" path="res://game/scenes/objects/rag.tscn" id="11_4gebf"]
+[ext_resource type="PackedScene" uid="uid://bku3mob0eb6x5" path="res://game/scenes/objects/water.tscn" id="12_2yk8i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7gk0"]
 size = Vector3(64, 1, 64)
@@ -60,6 +61,7 @@ environment = SubResource("Environment_nexbu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 14, 0)
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_nkil3")]
 
@@ -102,6 +104,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 object_name = "trash"
 
+[node name="Trash2" parent="Props" instance=ExtResource("5_4lrd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+object_name = "trash"
+
 [node name="TestBall" parent="Props" instance=ExtResource("7_52u48")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
 
@@ -119,3 +125,6 @@ gui_message = NodePath("../../GUIMessage")
 [node name="Rag" parent="Props" instance=ExtResource("11_4gebf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
 hover_text = "E - pick up rag"
+
+[node name="Water" parent="Props" instance=ExtResource("12_2yk8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 9)

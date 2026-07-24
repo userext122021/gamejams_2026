@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bku3mob0eb6x5"]
+
+[ext_resource type="Script" uid="uid://cp1lm7hss6q67" path="res://game/scenes/objects/water.gd" id="1_0ntwg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0ntwg"]
+height = 0.7
+radius = 2.0
+
+[sub_resource type="Gradient" id="Gradient_ispx5"]
+offsets = PackedFloat32Array(0, 0.21311475, 0.29918033, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.8496549, 0.8496549, 0.8496549, 1, 0.49590164, 0.49590164, 0.49590164, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w38hn"]
+frequency = 0.0391
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e4lcw"]
+noise = SubResource("FastNoiseLite_w38hn")
+color_ramp = SubResource("Gradient_ispx5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pi7x0"]
+albedo_color = Color(0.43137255, 0.6313726, 0.75686276, 1)
+albedo_texture = SubResource("NoiseTexture2D_e4lcw")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6gx3y"]
+material = SubResource("StandardMaterial3D_pi7x0")
+top_radius = 1.8
+bottom_radius = 2.0
+height = 0.4
+
+[node name="Water" type="Node3D"]
+script = ExtResource("1_0ntwg")
+object_name = "water"
+object_type = "other"
+is_interactive = true
+metadata/_custom_type_script = "uid://bcbjn2fhsuri1"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34999996, 0)
+shape = SubResource("CylinderShape3D_0ntwg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("CylinderMesh_6gx3y")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://wmykhsjijacs"]
 
-[ext_resource type="Script" uid="uid://bcbjn2fhsuri1" path="res://game/game_object/game_object.gd" id="1_cf25p"]
+[ext_resource type="Script" uid="uid://b7uiclk2s4ax0" path="res://game/scenes/objects/rag.gd" id="1_pa4lp"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cf25p"]
 size = Vector2(0.5, 0.4)
@@ -9,9 +9,10 @@ size = Vector2(0.5, 0.4)
 size = Vector3(1, 0.3, 1)
 
 [node name="Rag" type="Node3D"]
-script = ExtResource("1_cf25p")
+script = ExtResource("1_pa4lp")
 object_name = "rag"
 object_type = "tool"
+object_state = "clean"
 is_interactive = true
 is_pickable = true
 metadata/_custom_type_script = "uid://bcbjn2fhsuri1"

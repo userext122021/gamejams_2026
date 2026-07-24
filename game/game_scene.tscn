@@ -48,7 +48,7 @@ mesh = SubResource("PlaneMesh_svcr2")
 environment = SubResource("Environment_m7xky")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 14, 0)
+transform = Transform3D(1, 0, 0, 0, 0.8545948, 0.5192954, 0, -0.5192954, 0.8545948, 0, 14, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_slngj")]

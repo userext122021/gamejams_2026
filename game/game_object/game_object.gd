@@ -5,6 +5,8 @@ signal item_taken(item:GameObject)
 
 @export var object_name:String
 @export var object_type:String
+@export var object_state:String
+
 @export var object_size:Vector3=Vector3.ONE
 
 @export var drop_ray:RayCast3D
