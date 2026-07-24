@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpxlnqt3pl8l3"]
+
+[ext_resource type="Script" uid="uid://cl1ad384walg3" path="res://game/scenes/objects/base_cube.gd" id="1_pejwf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pejwf"]
+
+[sub_resource type="Gradient" id="Gradient_pejwf"]
+offsets = PackedFloat32Array(0, 0.21311475, 0.29918033, 1)
+colors = PackedColorArray(0.44291076, 0.44291076, 0.44291073, 1, 0.8496549, 0.8496549, 0.8496549, 1, 0.7309131, 0.7309131, 0.73091304, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dhetg"]
+frequency = 0.0391
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_66nau"]
+noise = SubResource("FastNoiseLite_dhetg")
+color_ramp = SubResource("Gradient_pejwf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecngn"]
+albedo_color = Color(0.8453288, 0.8453288, 0.84532875, 1)
+albedo_texture = SubResource("NoiseTexture2D_66nau")
+
+[sub_resource type="BoxMesh" id="BoxMesh_dhetg"]
+material = SubResource("StandardMaterial3D_ecngn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhetg"]
+
+[node name="BaseCube" type="Node3D" node_paths=PackedStringArray("drop_ray")]
+script = ExtResource("1_pejwf")
+object_name = "cube"
+object_type = "other"
+drop_ray = NodePath("RayCast3D")
+is_interactive = true
+is_pickable = true
+hover_text = "E - pick up"
+metadata/_custom_type_script = "uid://bcbjn2fhsuri1"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_pejwf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_dhetg")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_dhetg")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://7s1olwry8elp"]
+
+[ext_resource type="PackedScene" uid="uid://c7r6g6mhg5h5v" path="res://base/base_player/base_player.tscn" id="1_dadds"]
+[ext_resource type="Script" uid="uid://dd1wb0q4dtlaa" path="res://game/player.gd" id="2_w5y0b"]
+
+[node name="Player" node_paths=PackedStringArray("item_marker") instance=ExtResource("1_dadds")]
+script = ExtResource("2_w5y0b")
+item_marker = NodePath("ItemMarker")
+
+[node name="RayCast3D" type="RayCast3D" parent="Head" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
+target_position = Vector3(0, -0.5, -2)
+collide_with_areas = true
+
+[node name="Label3D" type="Label3D" parent="Head/RayCast3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.39999998)
+
+[node name="ItemMarker" type="Marker3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70000005, 0.6, -1.4)

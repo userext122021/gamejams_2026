@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://oxwb0ie3d0dh"]
+
+[ext_resource type="Script" uid="uid://1df8bj1r422r" path="res://game/scenes/objects/test/test_note.gd" id="1_ycfhu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycfhu"]
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mqjcf"]
+size = Vector2(0.4, 0.6)
+
+[node name="TestNote" type="Node3D"]
+script = ExtResource("1_ycfhu")
+object_name = "test note"
+object_type = "note"
+is_interactive = true
+metadata/_custom_type_script = "uid://bcbjn2fhsuri1"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_ycfhu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+mesh = SubResource("PlaneMesh_mqjcf")

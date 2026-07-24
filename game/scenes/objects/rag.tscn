@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://wmykhsjijacs"]
+
+[ext_resource type="Script" uid="uid://bcbjn2fhsuri1" path="res://game/game_object/game_object.gd" id="1_cf25p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cf25p"]
+size = Vector2(0.5, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56qs4"]
+size = Vector3(1, 0.3, 1)
+
+[node name="Rag" type="Node3D"]
+script = ExtResource("1_cf25p")
+object_name = "rag"
+object_type = "tool"
+is_interactive = true
+is_pickable = true
+metadata/_custom_type_script = "uid://bcbjn2fhsuri1"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("PlaneMesh_cf25p")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_56qs4")

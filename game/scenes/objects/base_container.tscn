@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://miwpkuk8stkq"]
+
+[ext_resource type="Script" uid="uid://df2uw3wsrbmcv" path="res://game/scenes/objects/base_container.gd" id="1_1a5gr"]
+
+[node name="BaseContainer" type="Node3D"]
+script = ExtResource("1_1a5gr")
+is_interactive = true
+hover_text = "E - put item inside"
+metadata/_custom_type_script = "uid://bcbjn2fhsuri1"
+
+[node name="FirstItemMarker" type="Marker3D" parent="."]

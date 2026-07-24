@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwrqpklgrx1ri"]
+
+[ext_resource type="PackedScene" uid="uid://dpxlnqt3pl8l3" path="res://game/scenes/objects/base_cube.tscn" id="1_6bug5"]
+
+[sub_resource type="Gradient" id="Gradient_62qu6"]
+offsets = PackedFloat32Array(0, 0.21311475, 0.29918033, 1)
+colors = PackedColorArray(0.44291076, 0.44291076, 0.44291073, 1, 0.8496549, 0.8496549, 0.8496549, 1, 0.7309131, 0.7309131, 0.73091304, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w5u5n"]
+frequency = 0.0391
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6tlg5"]
+noise = SubResource("FastNoiseLite_w5u5n")
+color_ramp = SubResource("Gradient_62qu6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kt4x6"]
+albedo_color = Color(0.54901963, 0.84705883, 0.84705883, 1)
+albedo_texture = SubResource("NoiseTexture2D_6tlg5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_q7gau"]
+material = SubResource("StandardMaterial3D_kt4x6")
+
+[node name="BlueCube" instance=ExtResource("1_6bug5")]
+
+[node name="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" index="0"]
+mesh = SubResource("BoxMesh_q7gau")

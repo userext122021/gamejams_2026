@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5s0qa278d2hv"]
+
+[ext_resource type="PackedScene" uid="uid://miwpkuk8stkq" path="res://game/scenes/objects/base_container.tscn" id="1_blmau"]
+[ext_resource type="PackedScene" uid="uid://bix2loa5k777q" path="res://game/scenes/objects/item_marker.tscn" id="2_i2exn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_blmau"]
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2exn"]
+size = Vector3(3, 2, 3)
+
+[node name="TestShelf" node_paths=PackedStringArray("area") instance=ExtResource("1_blmau")]
+area = NodePath("Area3D")
+object_name = "shelf"
+object_type = "conrainer"
+object_size = Vector3(2, 1, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_blmau")
+
+[node name="FirstItemMarker" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.4, -0.5)
+
+[node name="ItemMarker" parent="." index="2" instance=ExtResource("2_i2exn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90000004, 0.19999997, -0.7)
+
+[node name="ItemMarker2" parent="." index="3" instance=ExtResource("2_i2exn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999999, 0.19999997, -0.7)
+
+[node name="ItemMarker3" parent="." index="4" instance=ExtResource("2_i2exn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90000004, 0.19999997, 1)
+
+[node name="ItemMarker4" parent="." index="5" instance=ExtResource("2_i2exn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999999, 0.19999997, 1)
+
+[node name="Area3D" type="Area3D" parent="." index="6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_i2exn")

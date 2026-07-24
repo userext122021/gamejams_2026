@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck1qn4g2y6u64"]
+
+[ext_resource type="PackedScene" uid="uid://cgaqi6jao6qtr" path="res://game/game_object/game_object.tscn" id="1_mnadn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mnadn"]
+radius = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_pmnp6"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pmnp6"]
+
+[node name="TestBall" instance=ExtResource("1_mnadn")]
+object_name = "ball"
+object_type = "test"
+is_interactive = true
+is_pickable = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
+shape = SubResource("SphereShape3D_mnadn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D" index="0"]
+mesh = SubResource("SphereMesh_pmnp6")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("SphereShape3D_pmnp6")
